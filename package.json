@@ -1,0 +1,26 @@
+{
+  "name": "next-cookie-auth",
+  "version": "1.0.0",
+  "description": "Cookie authentication with Next.js",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js"
+  },
+  "author": "Habibirrahman",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "next": "^9.4.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/habibirrahman/next-cookie-auth.git"
+  },
+  "bugs": {
+    "url": "https://github.com/habibirrahman/next-cookie-auth/issues"
+  },
+  "homepage": "https://github.com/habibirrahman/next-cookie-auth#readme"
+}
