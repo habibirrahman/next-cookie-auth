@@ -9,6 +9,7 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   const server = express();
 
+<<<<<<< HEAD
   server.use(express.json());
 
   server.post("/api/login", (req, res) => {
@@ -23,6 +24,11 @@ app.prepare().then(() => {
   server.get("*", (req, res) => {
     return handle(req, res);
   });
+=======
+  server.get('*', (req, res) => {
+    return handle(req, res);
+  })
+>>>>>>> 071f9d28e52c9d432ec2cff14f8af753763a6f07
 
   server.listen(port, (err) => {
     if (err) throw err;
