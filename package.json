@@ -4,17 +4,20 @@
   "description": "Cookie authentication with Next.js",
   "main": "server.js",
   "scripts": {
-    "dev": "node server.js"
+    "dev": "nodemon server.js"
   },
   "author": "Habibirrahman",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.19.2",
     "express": "^4.17.1",
     "next": "^9.4.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/habibirrahman/next-cookie-auth.git"
