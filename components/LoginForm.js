@@ -6,14 +6,14 @@ class LoginForm extends React.Component {
     email: "Rey.Padberg@karina.biz",
     password: "ambrose.net",
     error: "",
-    isLoading: false,
+    isLoading: false
   };
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     const { email, password } = this.state;
 
     event.preventDefault();
@@ -25,7 +25,7 @@ class LoginForm extends React.Component {
       .catch(this.showError);
   };
 
-  showError = (err) => {
+  showError = err => {
     console.error(err);
     const error = (err.response && err.response.data) || err.message;
     this.setState({ error, isLoading: false });
@@ -33,6 +33,7 @@ class LoginForm extends React.Component {
 
   render() {
     const { email, password, error, isLoading } = this.state;
+
     return (
       <form onSubmit={this.handleSubmit}>
         <div>
