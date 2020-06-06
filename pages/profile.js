@@ -3,11 +3,11 @@ import { getUserProfile, authInitialProps } from "../lib/auth";
 
 export default class Profile extends React.Component {
   state = {
-    user: "Loading profile..."
+    user: "Loading profile...",
   };
 
   componentDidMount() {
-    getUserProfile().then(user => this.setState({ user }));
+    getUserProfile().then((user) => this.setState({ user }));
   }
 
   render() {

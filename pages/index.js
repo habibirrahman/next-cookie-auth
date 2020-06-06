@@ -11,5 +11,5 @@ export default function Index(props) {
     </Layout>
   );
 }
-
+ 
 Index.getInitialProps = authInitialProps();
