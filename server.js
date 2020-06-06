@@ -65,7 +65,7 @@ app.prepare().then(() => {
     }
     res.sendStatus(404);
   });
-
+ 
   server.get("*", (req, res) => {
     return handle(req, res);
   });

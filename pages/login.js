@@ -9,5 +9,5 @@ export default function Login(props) {
     </Layout>
   );
 }
-
+ 
 Login.getInitialProps = authInitialProps();
