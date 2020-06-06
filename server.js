@@ -9,18 +9,18 @@ const app = next({ dev });
 const handle = app.getRequestHandler();
 
 const AUTH_USER_TYPE = "authenticated";
-const COOKIE_SECRET = "asdsdafdfdw234e";
+const COOKIE_SECRET = "asldkfjals23ljk";
 const COOKIE_OPTIONS = {
   httpOnly: true,
   secure: !dev,
-  signed: true,
+  signed: true
 };
 
-const authentication = async (email, password) => {
+const authenticate = async (email, password) => {
   const { data } = await axios.get(
     "https://jsonplaceholder.typicode.com/users"
   );
-  return data.find((user) => {
+  return data.find(user => {
     if (user.email === email && user.website === password) {
       return user;
     }
@@ -35,20 +35,24 @@ app.prepare().then(() => {
 
   server.post("/api/login", async (req, res) => {
     const { email, password } = req.body;
-    const user = await authentication(email, password);
+    const user = await authenticate(email, password);
     if (!user) {
       return res.status(403).send("Invalid email or password");
     }
     const userData = {
       name: user.name,
       email: user.email,
-      type: AUTH_USER_TYPE,
+      type: AUTH_USER_TYPE
     };
     res.cookie("token", userData, COOKIE_OPTIONS);
     res.json(userData);
   });
 
-  // method get from profile.js: getUserProfile()
+  server.post("/api/logout", (req, res) => {
+    res.clearCookie("token", COOKIE_OPTIONS);
+    res.sendStatus(204);
+  });
+
   server.get("/api/profile", async (req, res) => {
     const { signedCookies = {} } = req;
     const { token } = signedCookies;
@@ -56,7 +60,7 @@ app.prepare().then(() => {
       const { data } = await axios.get(
         "https://jsonplaceholder.typicode.com/users"
       );
-      const userProfile = data.find((user) => user.email === token.email);
+      const userProfile = data.find(user => user.email === token.email);
       return res.json({ user: userProfile });
     }
     res.sendStatus(404);
@@ -66,7 +70,7 @@ app.prepare().then(() => {
     return handle(req, res);
   });
 
-  server.listen(port, (err) => {
+  server.listen(port, err => {
     if (err) throw err;
     console.log(`Listening on PORT ${port}`);
   });
